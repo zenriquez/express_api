@@ -35,6 +35,24 @@ app.post('/v1/explorers', (req, res) => {
 })
 
 
+//PUT creates an endpoint that updates an explorer
+app.put('/v1/explorers/:id', (req, res) => {
+    console.log(`Api Explorers PUT request ${new Date()}`)
+    console.log(`Update explorer with id ${req.params.id}`)
+    const requestBody = req.body //Parametros de cliente
+    res.status(200).json({message: "Updated!"})
+}) 
+
+
+//DELETE create an endpoint to eliminate an explorer
+app.delete('/v1/explorers/:id', (req, res) => {
+    console.log(`Api explorers DELETE request ${new Date()}`)
+    console.log(`Delete explorer with id ${req.params.id}`)
+    const requestBody = req.body //Parametros de cliente
+    res.status(200).json({message: "Deleted"})
+})
+
+
 // this starts the app
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
